@@ -16,17 +16,17 @@ This script automates the process of setting up a complete development environme
 *   An internet connection.
 
 ## How to Use
-
-1.  Ensure you have the following files in the same directory:
-    *   `install.bat`
-    *   `setup_dev_env.py`
+Download the file's or if you have git install then do 👇
+1.  ``` 
+    git clone https://github.com/sjanaX01/WinDev-Setup.git
+    cd WinDev-Setup 
+    ```
 2.  Open a command prompt or PowerShell **as an administrator**.
-3.  Navigate to the directory where you saved the files.
-4.  Run the following command:
+3.  Run the following command:
     ```
     install.bat
     ```
-5.  Sit back and relax while the script sets up your development environment.
+4.  Sit back and relax while the script sets up your development environment.
 
 ## What it Installs
 
