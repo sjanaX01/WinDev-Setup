@@ -21,7 +21,7 @@ echo Installing Oracle JDK 25...
 start /wait msiexec.exe /i jdk-25_windows-x64_bin.msi 
 echo Setting JAVA_HOME and updating PATH...
 setx JAVA_HOME "C:\Program Files\Java\jdk-25" /m
-setx PATH "%PATH%;%JAVA_HOME%\bin" /m
+setx PATH "%%PATH%%;%%JAVA_HOME%%\bin" /m
 echo Deleting installer...
 del jdk-25_windows-x64_bin.msi
 echo Oracle JDK 25 installation complete.
@@ -33,6 +33,10 @@ echo.
 
 echo --- Running Python Setup Script for other dev tools ---
 python setup_dev_env.py
+
+echo.
+echo --- Configuring oh-my-posh ---
+powershell -Command "if (-not (Test-Path $PROFILE)) { New-Item -Path $PROFILE -Type File -Force }; $profileContent = Get-Content $PROFILE; if (-not ($profileContent | Select-String -Pattern 'oh-my-posh init pwsh')) { Add-Content $PROFILE '`noh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/jandedobbeleer.omp.json" | Invoke-Expression' }"
 
 echo.
 echo ===================================

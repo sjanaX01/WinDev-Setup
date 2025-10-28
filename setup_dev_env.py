@@ -38,6 +38,7 @@ class DevEnvInstaller:
         self.winget_packages = [
             WingetPackage("Visual Studio Code", "Microsoft.VisualStudioCode"),
             WingetPackage("Oh My Posh", "JanDeDobbeleer.OhMyPosh"),
+            WingetPackage("JetBrainsMono Nerd Font", "Microsoft.NerdFonts.FiraCode"),
             WingetPackage("Fastfetch", "Fastfetch-cli.Fastfetch"),
             WingetPackage("Git", "Microsoft.Git"),
             WingetPackage("Node.js", "OpenJS.NodeJS"),
