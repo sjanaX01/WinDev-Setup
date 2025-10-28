@@ -335,11 +335,21 @@ def main():
     
     installer = WingetInstaller()
     
-    # Check if user wants to skip search verification
-    if len(sys.argv) > 1 and sys.argv[1] == "--skip-search":
-        installer.install_all(skip_search=True)
-    else:
-        installer.install_all()
+    # Parse command line arguments
+    skip_search = "--skip-search" in sys.argv
+    
+    # Show help if requested
+    if "--help" in sys.argv or "-h" in sys.argv:
+        print("\nUsage: python winget_dev_installer.py [OPTIONS]")
+        print("\nOptions:")
+        print("  --skip-search    Skip package search verification (faster)")
+        print("  --help, -h       Show this help message")
+        print("\nExamples:")
+        print("  python winget_dev_installer.py")
+        print("  python winget_dev_installer.py --skip-search")
+        return
+    
+    installer.install_all(skip_search=skip_search)
 
 if __name__ == "__main__":
     main()

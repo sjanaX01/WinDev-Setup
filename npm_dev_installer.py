@@ -20,6 +20,7 @@ class NpmPackage:
 
 class NpmInstaller:
     def __init__(self):
+        self.npm_cmd = self._get_npm_command()
         self.packages = [
             # AI & Code Generation Tools
             NpmPackage("Gemini CLI", "@google-ai/generativelanguage", "Google Gemini AI CLI tool", "AI Tools"),
@@ -94,20 +95,45 @@ class NpmInstaller:
             NpmPackage("Speed Test CLI", "speed-test", "Internet speed test", "Performance"),
         ]
     
-    def check_npm_available(self) -> bool:
-        """Check if npm is available on the system"""
+    def _get_npm_command(self) -> str:
+        """Get the correct npm command for the current platform"""
         try:
-            result = subprocess.run(
+            # Try npm command first
+            subprocess.run(
                 ["npm", "--version"], 
                 capture_output=True, 
                 text=True, 
                 check=True
             )
-            print(result)
+            return "npm"
+        except FileNotFoundError:
+            # Try npm.cmd on Windows
+            try:
+                subprocess.run(
+                    ["npm.cmd", "--version"], 
+                    capture_output=True, 
+                    text=True, 
+                    check=True
+                )
+                return "npm.cmd"
+            except FileNotFoundError:
+                return "npm"  # Default fallback
+    
+    def check_npm_available(self) -> bool:
+        """Check if npm is available on the system"""
+        try:
+            result = subprocess.run(
+                [self.npm_cmd, "--version"], 
+                capture_output=True, 
+                text=True, 
+                check=True
+            )
             print(f"✓ NPM version: {result.stdout.strip()}")
             return True
-        except (subprocess.CalledProcessError, FileNotFoundError):
+        except (FileNotFoundError, subprocess.CalledProcessError) as e:
             print("❌ NPM is not available. Please install Node.js first.")
+            print("💡 Make sure Node.js is installed and npm is in your PATH.")
+            print(f"Debug: Tried command '{self.npm_cmd}', error: {e}")
             return False
     
     def check_node_version(self) -> bool:
@@ -142,7 +168,7 @@ class NpmInstaller:
         try:
             # Check if package is installed globally
             list_result = subprocess.run(
-                ["npm", "list", "-g", "--depth=0", package.package_name],
+                [self.npm_cmd, "list", "-g", "--depth=0", package.package_name],
                 capture_output=True,
                 text=True
             )
@@ -164,7 +190,7 @@ class NpmInstaller:
             
             # Check for available updates
             outdated_result = subprocess.run(
-                ["npm", "outdated", "-g", package.package_name],
+                [self.npm_cmd, "outdated", "-g", package.package_name],
                 capture_output=True,
                 text=True
             )
@@ -214,7 +240,7 @@ class NpmInstaller:
         print(f"📦 Installing {package.name}...")
         
         try:
-            cmd = ["npm", "install", "-g", package.package_name]
+            cmd = [self.npm_cmd, "install", "-g", package.package_name]
             
             result = subprocess.run(
                 cmd,
@@ -244,7 +270,7 @@ class NpmInstaller:
         print(f"⬆️  Upgrading {package.name}...")
         
         try:
-            cmd = ["npm", "update", "-g", package.package_name]
+            cmd = [self.npm_cmd, "update", "-g", package.package_name]
             
             result = subprocess.run(
                 cmd,
@@ -274,7 +300,7 @@ class NpmInstaller:
         print("🔄 Updating npm cache...")
         try:
             subprocess.run(
-                ["npm", "cache", "clean", "--force"],
+                [self.npm_cmd, "cache", "clean", "--force"],
                 capture_output=True,
                 text=True,
                 check=True
