@@ -1,211 +1,89 @@
-# Development Tools Installers
+# Automated Development Environment Setup
 
-Two Python scripts that automatically install essential development tools:
-1. **Windows 11 Development Tools Installer** - Uses `winget` for system-level applications
-2. **NPM Development Tools Installer** - Uses `npm` for global CLI tools and utilities
+This script automates the process of setting up a complete development environment on a fresh Windows machine. It installs a curated list of essential development tools, runtimes, and applications, saving you the time and effort of manually installing everything.
 
-## Winget Installer Features
+## Features
 
-- ✅ Automatically installs 15+ essential development tools
-- 🔄 Checks for updates to existing packages and prompts user per-package
-- 🔍 Searches and verifies packages before installation
-- 📊 Provides detailed installation progress and summary
-- ⚡ Uses verified publishers when available
-- 🛡️ Handles errors gracefully with timeouts
-- 📝 Comprehensive logging of success/failure
-
-## NPM Installer Features
-
-- 🌐 Installs 45+ essential CLI tools and development utilities globally
-- 🔄 Per-package update checking with user prompts
-- 📋 Organized by categories (AI Tools, Frameworks, Testing, etc.)
-- ⚡ Fast npm package management
-- 🎯 Smart handling of already installed packages
-- 📊 Comprehensive installation summary
-
-## Winget Installer - Included Tools
-
-### Code Editors & Development
-- Visual Studio Code
-- Git
-- Windows Terminal
-
-### Programming Languages & Runtimes
-- Python 3.12
-- Node.js
-
-### Containerization & Virtualization
-- Docker Desktop
-- VirtualBox
-
-### Browsers
-- Google Chrome
-- Brave Browser
-
-### AI & Productivity Tools
-- Claude Desktop
-- Notion
-- PowerToys
-
-### Communication & Collaboration
-- Discord
-- Slack
-- Postman
-
-### Utilities
-- 7-Zip
-- OBS Studio
-
-## NPM Installer - Included Packages
-
-### AI & Code Generation Tools
-- Google Gemini CLI
-- OpenAI CLI
-
-### Core Development Languages & Frameworks
-- TypeScript
-- Create React App
-- Next.js CLI
-- Vue CLI
-- Angular CLI
-
-### Development Servers & Tools
-- Nodemon
-- Live Server
-- HTTP Server
-- JSON Server
-- Concurrently
-
-### Code Quality & Linting
-- ESLint
-- Prettier
-- JSHint
-- JavaScript Standard Style
-
-### Build Tools & Bundlers
-- Webpack CLI
-- Vite
-- Parcel
-- Rollup
-
-### Package Management & Publishing
-- Yarn
-- PNPM
-- NPX
-- NP (Better npm publish)
-- Semantic Release
-
-### Testing Tools
-- Jest CLI
-- Mocha
-- Cypress
-- Playwright
-
-### Database & API Tools
-- MongoDB Tools
-- Prisma CLI
-- GraphQL CLI
-- Apollo CLI
-
-### Deployment & DevOps
-- Vercel CLI
-- Netlify CLI
-- Firebase CLI
-- Heroku CLI
-
-### Documentation & Generators
-- JSDoc
-- Storybook CLI
-- Docusaurus
-
-### Performance & Monitoring
-- Lighthouse CLI
-- Bundlephobia CLI
-- Speed Test CLI
-
-### Utility CLI Tools
-- Lodash CLI
-- Axios
-- Chalk
-- Commander
+*   **One-click setup:** Run a single script to install everything.
+*   **Comprehensive toolset:** Installs a wide range of development tools, from code editors and compilers to browsers and communication apps.
+*   **Silent installation:** Most applications are installed silently in the background, without requiring any user interaction.
+*   **Interactive updates:** The script checks for existing installations and prompts you to update if a new version is available.
+*   **Modern and minimal UI:** The script provides a clean and modern interface in your terminal, with clear status messages and loading animations.
 
 ## Prerequisites
 
-### For Winget Installer
-- Windows 11
-- `winget` (App Installer) - Usually pre-installed on Windows 11
-- Python 3.7+
+*   Windows 10 or 11.
+*   An internet connection.
 
-### For NPM Installer
-- Node.js 16+ (includes npm)
-- Python 3.7+
+## How to Use
 
-## Usage
+1.  Ensure you have the following files in the same directory:
+    *   `install.bat`
+    *   `setup_dev_env.py`
+2.  Open a command prompt or PowerShell **as an administrator**.
+3.  Navigate to the directory where you saved the files.
+4.  Run the following command:
+    ```
+    install.bat
+    ```
+5.  Sit back and relax while the script sets up your development environment.
 
-### Winget Installer (System Applications)
-```bash
-# Basic installation with per-package update checking
-python winget_dev_installer.py
+## What it Installs
 
-# Skip package search verification (faster)
-python winget_dev_installer.py --skip-search
+The script installs the following software:
 
-# Show help
-python winget_dev_installer.py --help
-```
+### Core Compilers and Runtimes
 
-### NPM Installer (Global CLI Tools)
-```bash
-# Install all npm packages with update checking
-python npm_dev_installer.py
+*   MSYS2 (for C/C++ compiler)
+*   Oracle JDK 25 (for Java)
+*   Python 3.12
+*   Node.js
 
-# Show all packages by category before installing
-python npm_dev_installer.py --show-categories
+### Development Tools
 
-# Show help
-python npm_dev_installer.py --help
-```
+*   Visual Studio Code
+*   Git
+*   Docker Desktop
+*   Postman
+*   Windows Terminal
+*   PowerToys
+*   7-Zip
 
-## How It Works
+### Browsers
 
-1. **Verification**: Checks if winget is available on your system
-2. **Source Update**: Updates winget sources for latest package information
-3. **Search**: Verifies each package exists in winget repositories
-4. **Installation**: Installs packages one by one with proper error handling
-5. **Summary**: Provides a detailed report of successful and failed installations
+*   Google Chrome
+*   Brave Browser
 
-## Error Handling
+### Communication and Productivity
 
-- **Timeout Protection**: 5-minute timeout per package installation
-- **Graceful Failures**: Continues installing other packages if one fails
-- **Detailed Logging**: Shows exactly what succeeded and what failed
-- **Source Verification**: Ensures packages come from verified publishers
+*   Discord
+*   Slack
+*   Notion
+*   WhatsApp
+*   Telegram Desktop
 
-## Customization
+### Other Tools
 
-To add or remove packages, edit the `packages` list in the `WingetInstaller.__init__()` method:
+*   VirtualBox
+*   Claude Desktop
+*   OBS Studio
+*   VLC media player
 
-```python
-Package("Tool Name", "winget.package.id", "Description", True)
-```
+### NPM Packages (globally installed)
 
-## Troubleshooting
+A wide range of npm packages for web development, including:
 
-### Winget Not Found
-If you get a "winget not available" error:
-1. Install "App Installer" from Microsoft Store
-2. Restart your terminal
-3. Run the script again
+*   **AI & Code Generation:** Gemini CLI, OpenAI CLI
+*   **Frameworks:** React, Next.js, Vue, Angular
+*   **Development Servers:** Nodemon, Live Server, HTTP Server
+*   **Code Quality:** ESLint, Prettier, JSHint
+*   **Build Tools:** Webpack, Vite, Parcel, Rollup
+*   **Package Management:** Yarn, PNPM
+*   **Testing:** Jest, Mocha, Cypress, Playwright
+*   **And many more...**
 
-### Package Installation Fails
-- Some packages may require administrator privileges
-- Run Command Prompt or PowerShell as Administrator
-- Check if the package ID is correct using `winget search <package-name>`
+## Notes
 
-### Slow Installation
-- Use `--skip-search` flag to speed up the process
-- Some packages (like Docker, VirtualBox) are large and take time to download
-
-## License
-
-This project is open source and available under the MIT License.
+*   This script needs to be run with **administrator privileges** to be able to install software and modify system environment variables.
+*   The script will install MSYS2 to `C:\msys64` and Oracle JDK to `C:\Program Files\Java\jdk-25`.
+*   Some installations might take a while to complete. Please be patient.

@@ -1,2 +1,0 @@
-# No external dependencies required - uses only Python standard library
-# This installer uses subprocess to call winget directly
