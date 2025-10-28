@@ -87,3 +87,15 @@ A wide range of npm packages for web development, including:
 *   This script needs to be run with **administrator privileges** to be able to install software and modify system environment variables.
 *   The script will install MSYS2 to `C:\msys64` and Oracle JDK to `C:\Program Files\Java\jdk-25`.
 *   Some installations might take a while to complete. Please be patient.
+
+## Contributing
+
+We welcome contributions to make this project even better! If you have a favorite development tool or package that you think should be included, please feel free to contribute.
+
+You can contribute by:
+
+1.  **Forking the repository.**
+2.  **Adding your desired packages or features to the `setup_dev_env.py` script.**
+3.  **Creating a pull request with a clear description of your changes.**
+
+Alternatively, you can open an issue to suggest new packages or discuss potential improvements.

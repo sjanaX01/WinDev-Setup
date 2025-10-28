@@ -37,6 +37,8 @@ class DevEnvInstaller:
     def __init__(self):
         self.winget_packages = [
             WingetPackage("Visual Studio Code", "Microsoft.VisualStudioCode"),
+            WingetPackage("Oh My Posh", "JanDeDobbeleer.OhMyPosh"),
+            WingetPackage("Fastfetch", "Fastfetch-cli.Fastfetch"),
             WingetPackage("Git", "Microsoft.Git"),
             WingetPackage("Node.js", "OpenJS.NodeJS"),
             WingetPackage("Docker Desktop", "Docker.DockerDesktop"),
