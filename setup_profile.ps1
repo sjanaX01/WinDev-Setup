@@ -5,30 +5,31 @@ if (-not (Test-Path $configDir)) {
 }
 
 # Create ascii.txt
-$asciiContent = @"
-$1⠀⠀⠀⠀⣀⡀
-$1⠀⠀⠀⠀⣿⠙⣦⠀⠀⠀⠀⠀⠀⣀⣤⡶⠛⠁
-$2⠀⠀⠀⠀⢻⠀⠈⠳⠀⠀⣀⣴⡾⠛⠁⣠⠂⢠⠇
-$2⠀⠀⠀⠀⠈⢀⣀⠤⢤⡶⠟⠁⢀⣴⣟⠀⠀⣾
-$3⠀⠀⠀⠠⠞⠉⢁⠀⠉⠀⢀⣠⣾⣿⣏⠀⢠⡇
-$3⠀⠀⡰⠋⠀⢰⠃⠀⠀⠉⠛⠿⠿⠏⠁⠀⣸⠁
-$4⠀⠀⣄⠀⠀⠏⣤⣤⣀⡀⠀⠀⠀⠀⠀⠾⢯⣀
-$4⠀⠀⣻⠃⠀⣰⡿⠛⠁⠀⠀⠀⢤⣀⡀⠀⠺⣿⡟⠛⠁
-$5⠀⡠⠋⡤⠠⠋⠀⠀⢀⠐⠁⠀⠈⣙⢯⡃⠀⢈⡻⣦
-$5⢰⣷⠇⠀⠀⠀⢀⡠⠃⠀⠀⠀⠀⠈⠻⢯⡄⠀⢻⣿⣷
-$6⠀⠉⠲⣶⣶⢾⣉⣐⡚⠋⠀⠀⠀⠀⠀⠘⠀⠀⡎⣿⣿⡇
-$6⠀⠀⠀⠀⠀⣸⣿⣿⣿⣷⡄⠀⠀⢠⣿⣴⠀⠀⣿⣿⣿⣧
-$7⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⠇⠀⢠⠟⣿⠏⢀⣾⠟⢸⣿⡇
-$7⠀⠀⢠⣿⣿⣿⣿⠟⠘⠁⢠⠜⢉⣐⡥⠞⠋⢁⣴⣿⣿⠃
-$8⠀⠀⣾⢻⣿⣿⠃⠀⠀⡀⢀⡄⠁⠀⠀⢠⡾ᵇʸ ᵗⁿᵏᵃ⠁
-$8⠀⠀⠃⢸⣿⡇⠀⢠⣾⡇⢸⡇⠀⠀⠀⡞
-$9⠀⠀⠀⠈⢿⡇⡰⠋⠈⠙⠂⠙⠢
-$9⠀⠀⠀⠀⠈⢧
-"@
-$asciiContent | Out-File -FilePath "$configDir\ascii.txt" -Encoding utf8
+$asciiContent = @'
+$1    ⣀⡀
+$1    ⣿⠙⣦⠀⠀⠀⠀⠀⠀⣀⣤⡶⠛⠁
+$2    ⢻⠀⠈⠳⠀⠀⣀⣴⡾⠛⠁⣠⠂⢠⠇
+$2    ⠈⢀⣀⠤⢤⡶⠟⠁⢀⣴⣟⠀⠀⣾
+$3   ⠠⠞⠉⢁⠀⠉⠀⢀⣠⣾⣿⣏⠀⢠⡇
+$3  ⡰⠋⠀⢰⠃⠀⠀⠉⠛⠿⠿⠏⠁⠀⣸⠁
+$4  ⣄⠀⠀⠏⣤⣤⣀⡀⠀⠀⠀⠀⠀⠾⢯⣀
+$4  ⣻⠃⠀⣰⡿⠛⠁⠀⠀⠀⢤⣀⡀⠀⠺⣿⡟⠛⠁
+$5 ⡠⠋⡤⠠⠋⠀⠀⢀⠐⠁⠀⠈⣙⢯⡃⠀⢈⡻⣦
+$5⢰⣷⠇   ⢀⡠⠃⠀⠀⠀⠀⠈⠻⢯⡄⠀⢻⣿⣷
+$6 ⠉⠲⣶⣶⢾⣉⣐⡚⠋⠀⠀⠀⠀⠀⠘⠀⠀⡎⣿⣿⡇
+$6 ⠀⠀⠀⠀⣸⣿⣿⣿⣷⡄⠀⠀⢠⣿⣴⠀⠀⣿⣿⣿⣧
+$7 ⠀⠀⢀⣴⣿⣿⣿⣿⣿⠇⠀⢠⠟⣿⠏⢀⣾⠟⢸⣿⡇
+$7 ⠀⢠⣿⣿⣿⣿⠟⠘⠁⢠⠜⢉⣐⡥⠞⠋⢁⣴⣿⣿⠃
+$8 ⠀⣾⢻⣿⣿⠃⠀⠀⡀⢀⡄⠁⠀⠀⢠⡾ᵇʸ ᵗⁿᵏᵃ⠁
+$8 ⠀⠃⢸⣿⡇⠀⢠⣾⡇⢸⡇⠀⠀⠀⡞
+$9 ⠀⠀⠈⢿⡇⡰⠋⠈⠙⠂⠙⠢
+$9 ⠀⠀⠀⠈⢧
+'@
+[System.IO.File]::WriteAllText("$configDir\ascii.txt", $asciiContent, (New-Object System.Text.UTF8Encoding($false)))
+
 
 # Create config.jsonc
-$asciiPathForJson = "$configDir\ascii.txt".Replace('\', '/')
+$asciiPathForJson = (Join-Path $configDir 'ascii.txt').Replace('\', '/')
 $jsonContent = @"
 {
   "`$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
@@ -99,12 +100,14 @@ $jsonContent = @"
   ]
 }
 "@
-$jsonContent | Out-File -FilePath "$configDir\config.jsonc" -Encoding utf8
+$utf8NoBOM = New-Object System.Text.UTF8Encoding($false)
+[System.IO.File]::WriteAllText("$configDir\config.jsonc", $jsonContent, $utf8NoBOM)
+
 
 # Update PowerShell profile
-$profilePath = `$PROFILE
-if (-not (Test-Path `$profilePath)) {
-    New-Item -Path `$profilePath -Type File -Force
+$profilePath = $PROFILE
+if (-not (Test-Path $profilePath)) {
+    New-Item -Path $PROFILE -Type File -Force
 }
 
 $fastfetchConfigPath = "$env:USERPROFILE\.config\fastfetch\config.jsonc".Replace('\', '/')
@@ -126,8 +129,8 @@ if (Get-Command fastfetch -ErrorAction SilentlyContinue) {
 }
 "@
 
-$existingContent = Get-Content `$profilePath -Raw
+$existingContent = Get-Content $profilePath -Raw
 if (-not ($existingContent -match 'fastfetch -c')) {
     $newContent = $profileContentToAdd + "`n" + $existingContent
-    Set-Content -Path `$profilePath -Value $newContent
+    Set-Content -Path $profilePath -Value $newContent
 }
