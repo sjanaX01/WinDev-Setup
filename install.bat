@@ -36,11 +36,7 @@ python setup_dev_env.py
 
 echo.
 echo --- Configuring PowerShell Profile ---
-powershell -NoProfile -ExecutionPolicy Bypass -File setup_profile.ps1
-
-echo.
-echo --- Configuring oh-my-posh ---
-powershell -Command "$profileContent = Get-Content $PROFILE -Raw; if (-not ($profileContent -match 'oh-my-posh init pwsh')) { Add-Content $PROFILE '`noh-my-posh init pwsh --config ""$env:POSH_THEMES_PATH/jandedobbeleer.omp.json"" | Invoke-Expression' }"
+python setup_profile.py
 
 echo.
 echo ===================================
